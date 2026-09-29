@@ -36,6 +36,7 @@ Parent plan (source of truth for capture rules, nomenclature and validation):
 | M2 Bosch GLM 50-27 C laser over BLE | #2 | `m2-ble-laser/` |
 | M3 On-site measurement capture | #3 | `m3-measurement-capture/` |
 | M4 Offline-first storage and sync | #4 | `m4-offline-sync/` |
+| M5 Distribution mode — v0 on site (Studio E13 #118) | #20 | `m5-distribution-mode/` |
 
 ## Directory Layout
 
@@ -49,6 +50,7 @@ docs/specs/
   m2-ble-laser/          epic.md, 08-…, 09-…, 18-…
   m3-measurement-capture/ epic.md, 10-… … 15-…
   m4-offline-sync/       epic.md, 16-…, 17-…
+  m5-distribution-mode/  epic.md, 21-… … 24-…
 ```
 
 ## Rules
