@@ -26,7 +26,14 @@ and produces the same issues as Studio for the same input.
   `HAS_ATTACHMENT`, `NO_OVERLAP`).
 - Tolerances, severities and messages are read from the catalog, never hardcoded.
 - Unknown `kind` in the catalog → forced update flow (#7), not silent skip.
-- Runs on every edit, scoped to the affected wall (+ measurement-level rules).
+- Same evaluation semantics as Studio #113: `ruleSet` (`MEASUREMENT` here,
+  `DISTRIBUTION` in #23), `scope` (`WALL`, `ELEMENT`, `SITE`, `MEASUREMENT`),
+  **all rules evaluated** (no short-circuit), unmet `prerequisites` skip
+  without issues, deterministic issue order, same issue shape.
+- Runs on every edit, re-evaluating only `WALL`/`ELEMENT` rules of the edited
+  wall plus `SITE`/`MEASUREMENT` rules.
+- Survey-only visits run `MEASUREMENT` rules; `DISTRIBUTION` rules run only
+  when a v0 exists.
 
 ## Keeping app and Studio in sync
 
@@ -38,7 +45,7 @@ and produces the same issues as Studio for the same input.
 
 ## Acceptance Criteria
 
-- [ ] Passes 100 % of Studio conformance vectors for the supported `rulesEngineVersion`.
+- [ ] Passes 100 % of Studio conformance vectors for the supported `rulesEngineVersion`. Vectors are compared **in order**.
 - [ ] Validation of one wall completes in < 100 ms on a mid-range Android device.
 - [ ] Changing a tolerance in the catalog changes results without an app release.
 - [ ] Unknown rule kind triggers the update-required flow.
