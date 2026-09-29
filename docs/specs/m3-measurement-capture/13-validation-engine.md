@@ -57,4 +57,5 @@ and produces the same issues as Studio for the same input.
 
 ## Open Questions
 
-- [ ] How CI fetches vectors (release asset, endpoint, submodule) — decided in Studio #113.
+- [x] CI fetches vectors from the Studio GitHub release asset
+      `validation-vectors-{catalogVersion}.zip` (Studio #113), verifying its sha256.
