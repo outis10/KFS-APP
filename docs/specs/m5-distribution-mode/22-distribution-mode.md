@@ -25,7 +25,8 @@ With the client, in 15–20 minutes, sketch which modules go on each wall.
 6. Drag to reorder; swipe to delete (undo).
 7. Suggestions: filler at corners/out-of-plumb ends offered with one tap.
 8. Live issues from #23 (e.g. "Tarja no está sobre agua/drenaje").
-9. Client notes field ("Qué quiere el cliente") + quick chips (más cajones,
+9. Client notes field ("Qué quiere el cliente"), toggle **"Cocinan 2 o más
+   personas"** (`multiCook`, raises aisle minimums) + quick chips (más cajones,
    alacenas hasta el techo, refrigerador grande…).
 10. Badge "v0 — Preliminar" always visible.
 
