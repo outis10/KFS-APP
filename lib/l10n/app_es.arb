@@ -1,0 +1,18 @@
+{
+  "@@locale": "es",
+  "appTitle": "Kalitron Medición",
+  "@appTitle": {
+    "description": "Application title"
+  },
+  "homeTitle": "Inicio",
+  "homeTemplateNotice": "Versión base de la app: arquitectura, ambientes, CI y release. Sin lógica de negocio todavía.",
+  "homeAboutButton": "Acerca de la app",
+  "aboutTitle": "Acerca de",
+  "aboutVersion": "Versión",
+  "aboutBuild": "Compilación",
+  "aboutFlavor": "Ambiente",
+  "aboutServer": "Servidor Studio",
+  "loading": "Cargando…",
+  "errorGeneric": "Ocurrió un error inesperado. Intenta de nuevo.",
+  "retry": "Reintentar"
+}
