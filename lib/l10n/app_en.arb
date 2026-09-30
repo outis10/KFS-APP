@@ -1,0 +1,15 @@
+{
+  "@@locale": "en",
+  "appTitle": "Kalitron Measurement",
+  "homeTitle": "Home",
+  "homeTemplateNotice": "Base version of the app: architecture, environments, CI and release. No business logic yet.",
+  "homeAboutButton": "About the app",
+  "aboutTitle": "About",
+  "aboutVersion": "Version",
+  "aboutBuild": "Build",
+  "aboutFlavor": "Environment",
+  "aboutServer": "Studio server",
+  "loading": "Loading…",
+  "errorGeneric": "An unexpected error occurred. Please try again.",
+  "retry": "Retry"
+}

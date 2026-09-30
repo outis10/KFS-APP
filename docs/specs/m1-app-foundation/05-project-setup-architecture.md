@@ -1,6 +1,6 @@
 # [M1] Issue 5: Project Setup, Architecture and CI
 
-Status: Draft
+Status: Implemented
 Issue: #5
 Epic: #1
 Owner: TBD
@@ -109,9 +109,21 @@ connectivity) is behind interfaces in `domain` so it can be faked in tests.
 
 - CI green on a sample unit test, widget test and `integration_test` smoke test.
 
+## Implementation notes (v0.1.0)
+
+- Application id `com.kalitron.kfs` (`.dev`, `.stg` suffixes per flavor).
+- Android `minSdk` 24; AGP 9.1 / Gradle 9.3; app name per flavor via
+  `manifestPlaceholders`.
+- Riverpod 3 without code generation (plain providers); retry disabled in
+  tests via `ProviderScope(retry: …)`.
+- Generated code (drift, l10n) committed; CI fails if out of date.
+- Release workflow publishes `kfs-app-<version>.apk` + `.sha256`; debug-signed
+  until the release keystore secrets exist.
+- Released as `v0.1.0` — foundation / reference template (no business logic).
+
 ## Open Questions
 
-- [ ] Final application id / bundle id (e.g. `com.kalitron.kfs`).
+- [x] Application id: `com.kalitron.kfs`.
 - [ ] iOS CI when iOS is enabled: GitHub macOS runners, Codemagic, or local Mac?
-- [ ] Crash reporting provider.
-- [ ] Minimum OS versions (depend on Bosch SDK).
+- [ ] Crash reporting provider (deferred; not needed for the template).
+- [ ] Minimum OS versions (depend on Bosch SDK; Android 24 for now).

@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "KFS dev",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main_dev.dart",
+      "args": ["--flavor", "dev", "--dart-define-from-file=env/dev.json"]
+    },
+    {
+      "name": "KFS staging",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main_staging.dart",
+      "args": ["--flavor", "staging", "--dart-define-from-file=env/staging.json"]
+    },
+    {
+      "name": "KFS prod (release)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release",
+      "program": "lib/main_prod.dart",
+      "args": ["--flavor", "prod", "--dart-define-from-file=env/prod.json"]
+    }
+  ]
+}
