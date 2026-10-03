@@ -2,7 +2,7 @@
 epic: M3
 title: On-site measurement capture
 status: Draft
-issues: "#10 #11 #12 #13 #14 #15"
+issues: "#10 #11 #12 #13 #14 #15 #27"
 studio_epic: "outis10/kalitron-furniture-studio#104"
 ---
 
@@ -30,6 +30,7 @@ wall's left corner; Y from finished floor; at least one photo per wall.
 
 | Issue | Spec |
 | --- | --- |
+| #27 Guided survey procedure (order, layers, diagonal check) | [27-guided-survey-procedure.md](27-guided-survey-procedure.md) |
 | #10 Download sessions and catalog | [10-download-sessions-and-catalog.md](10-download-sessions-and-catalog.md) |
 | #11 Floor plan capture | [11-floor-plan-capture.md](11-floor-plan-capture.md) |
 | #12 Wall capture with nomenclature buttons | [12-wall-capture.md](12-wall-capture.md) |

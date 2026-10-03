@@ -3,7 +3,7 @@
 Status: Draft
 Issue: #11
 Epic: #3
-Depends on: #10, #16
+Depends on: #10, #16 · Flow: #27 (steps 1–2 and 4)
 Owner: TBD
 
 ## Goal
@@ -24,7 +24,9 @@ skeleton for per-wall capture.
 3. Add walls: app proposes `A`, `B`, `C`… in order (clockwise from left of the
    entry door, reminder shown with an illustration).
 4. Corners `E-AB`, `E-BC`… auto-created between consecutive walls; angle
-   defaults to 90°, editable. Optional closing corner (last → A) for closed rooms.
+   defaults to 90°. Square check by the **diagonal method** (#27 step 4):
+   legs 1000/1000 mm (editable) + measured diagonal → computed angle.
+   Optional closing corner (last → A) for closed rooms.
 5. Mark which wall contains the entry door (for reference).
 6. Schematic preview: simple polygon/strip of walls (not to scale if angles unknown).
 
