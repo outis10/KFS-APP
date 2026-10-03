@@ -4,7 +4,7 @@ Status: Draft
 Issue: #12
 Epic: #3
 Studio: outis10/kalitron-furniture-studio#105 (codes + required fields)
-Depends on: #11; laser input from #9 (manual works without it)
+Depends on: #11; laser input from #9 (manual works without it) · Flow: #27 (step 3)
 Owner: TBD
 
 ## Goal
@@ -18,8 +18,9 @@ catalog-driven buttons, with values from the laser or typed manually.
    (design length = minimum, shown live), plus `Desplome` (`dPl`) and
    optional `Cierre` (closing measurement: from the wall's **right** corner to
    the right edge of the rightmost element).
-2. Element buttons grouped by catalog group (Aberturas, Servicios,
-   Obstrucciones, Electrodomésticos) with code + es-MX label.
+2. Elements captured **by layers** (#27): Aberturas → Obstrucciones →
+   Servicios → Electrodomésticos, each left → right; each layer ends with
+   "Listo" or "No hay … en este muro". Buttons show only the layer's group.
 3. Tap `V` → form with the catalog's `requiredFields` for that code
    (`X`, `Y`, `A`, `H`, depth, swing for `P`).
 4. Each numeric field: in **Automático** mode, focus it and press the laser
@@ -68,4 +69,3 @@ catalog-driven buttons, with values from the laser or typed manually.
 
 ## Open Questions
 
-- [ ] Element ordering: by X or by capture order?

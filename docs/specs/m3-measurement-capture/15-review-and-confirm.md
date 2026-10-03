@@ -15,8 +15,10 @@ errors and confirms; Studio makes the final decision on sync.
 ## User Flow
 
 1. "Revisar" → summary: walls with design length, element counts, photo count,
-   issues grouped by severity (ERROR / WARNING / INFO); tap → jump to field.
-2. "Confirmar medición" enabled only with 0 local `ERROR`s.
+   **unanswered layers** (#27), issues grouped by severity (ERROR / WARNING /
+   INFO); tap → jump to field.
+2. "Confirmar medición" enabled only with 0 local `ERROR`s and every wall's
+   4 layers answered.
 3. Confirm → local state `CONFIRM_PENDING`; outbox enqueues upsert + photos + confirm.
 4. After sync:
    - Studio `200` → `CONFIRMED`, session shown as `MEASURED`.
