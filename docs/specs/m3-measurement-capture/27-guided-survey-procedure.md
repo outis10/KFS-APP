@@ -1,6 +1,6 @@
 # [M3] User Story 27: Guided Survey Procedure (Step by Step, by Layers)
 
-Status: Draft
+Status: Reviewed
 Issue: #27
 Epic: #3
 Studio: outis10/kalitron-furniture-studio#105 (catalog groups/codes), #106 (backup sheet follows the same order), #112 (corner diagonal in payload)
@@ -34,7 +34,6 @@ laser charged and paired (#9).
 **1. Start on site**
 1. Visit type: *Solo levantamiento* / *Levantamiento + distribución v0*.
 2. General photo of the room from the entry door.
-3. Ceiling height.
 
 **2. Floor plan — name the room** (#11)
 1. Stand at the entry door: the wall on the **left** is **A**; continue
@@ -48,7 +47,8 @@ laser charged and paired (#9).
 | --- | --- | --- |
 | 3a | Wall photo | Evidence before measuring |
 | 3b | 3 lengths: floor → 900 mm → ceiling | Corner to corner; required before anything else on the wall |
-| 3c | Out of plumb (`dPl`) | Optional; "No aplica" allowed |
+| 3c | **Ceiling height at both ends**: left end → right end | Floor to ceiling, ~100 mm from each corner. Required for every wall. Different values = **sloped ceiling** (shown on the wall strip); a stepped ceiling / soffit is captured as `VG` (beam) in layer 2 |
+| 3c′ | Out of plumb (`dPl`) | Optional; "No aplica" allowed |
 | 3d | **Layer 1 — Openings** (`V`, `P`) | Left → right |
 | 3e | **Layer 2 — Obstructions** (`CL`, `VG`, `TB`, `RG`) | Left → right |
 | 3f | **Layer 3 — Services** (`TA`, `DR`, `GS`, `CT`, `AP`, `CE`) | Left → right |
@@ -67,13 +67,19 @@ group (codes and labels from the catalog).
 For each corner, the measurer chooses **"Está a escuadra"** or
 **"Verificar"**. To verify:
 
-1. Mark a point **1000 mm** from the corner on each wall (legs are editable).
+1. Mark a point **1000 mm** from the corner on each wall. If a wall is
+   shorter than that (e.g. next to a column), the app proposes the longest
+   available leg (`min(1000, wall length − 50)`).
 2. Measure the **diagonal** between the two points (laser or manual).
 3. The app computes the angle with the law of cosines:
    `angle = acos((a² + b² − d²) / (2ab))`, rounded to the nearest degree.
    1000/1000 legs → 1414 mm ≈ 90°; ~12 mm of diagonal ≈ 1°.
 4. The legs, the diagonal and the computed angle are stored; Studio
    recomputes the angle from the diagonal on sync (authoritative).
+5. **Small corners**: if either leg would be **< 300 mm**, the check is not
+   reliable (1 mm of diagonal ≈ several degrees). The app offers only
+   "Está a escuadra" or "No verificable"; the corner keeps 90° and is marked
+   `NOT_VERIFIABLE` so the designer knows it was not checked.
 
 **5. Site** — floor out of level (`dP`) with location, or "No aplica".
 
@@ -103,9 +109,12 @@ and unanswered layers; confirm.
 
 - Local: `survey_progress` (measurementUuid, current step, per-wall layer
   answers: `DONE` / `NONE` / `PENDING`), corner checks
-  (`legAMm`, `legBMm`, `diagonalMm`, `angleDeg`).
-- Sync payload (Studio #112): `corners[].squareCheck { legAMm, legBMm, diagonalMm }`
-  next to `angleDeg`; `walls[].layers { OPENING, OBSTRUCTION, SERVICE, APPLIANCE: DONE|NONE }`
+  (`legAMm`, `legBMm`, `diagonalMm`, `angleDeg`, `status`), per-wall
+  `ceilingHeightLeftMm` / `ceilingHeightRightMm`.
+- Sync payload (Studio #112): `walls[].ceilingHeightLeftMm` /
+  `ceilingHeightRightMm` (no global ceiling height);
+  `corners[].squareCheck { status, legAMm, legBMm, diagonalMm }` next to
+  `angleDeg` (`status`: `VERIFIED` / `ASSUMED_SQUARE` / `NOT_VERIFIABLE`); `walls[].layers { OPENING, OBSTRUCTION, SERVICE, APPLIANCE: DONE|NONE }`
   so Studio knows a layer was explicitly confirmed empty.
 
 ## UI States
@@ -126,7 +135,9 @@ and unanswered layers; confirm.
 - [ ] Guided mode is the default and follows steps 1–6 in order (7 when applicable).
 - [ ] A wall is complete only when lengths are captured and its 4 layers are answered (`Listo` or `No hay`).
 - [ ] In automatic mode, consecutive laser readings fill the fields of a step in order without touching the screen.
+- [ ] Every wall requires ceiling heights at both ends; different values are shown as a sloped ceiling.
 - [ ] The diagonal check computes the angle (1000/1000/1414 → 90°) and stores legs, diagonal and angle.
+- [ ] Legs shorter than 300 mm only allow "Está a escuadra" / "No verificable".
 - [ ] Closing the app mid-survey and reopening resumes at the same step.
 - [ ] Free mode allows jumping anywhere and lists unanswered layers.
 - [ ] Usability test: a designer completes a 3-wall kitchen in guided mode without instructions beyond the app.
@@ -139,5 +150,9 @@ and unanswered layers; confirm.
 
 ## Open Questions
 
-- [ ] Ceiling height: one reading or several (e.g. per wall)?
-- [ ] Default leg length 1000 mm OK for small corners (e.g. columns)?
+Resolved at review (2026-10-02):
+
+- [x] Ceiling height: **per wall, at both ends** (sloped ceilings exist;
+      stepped ceilings/soffits are captured as `VG`).
+- [x] Small corners: legs default `min(1000, wall − 50)`; below 300 mm the
+      corner is "Está a escuadra" or "No verificable".

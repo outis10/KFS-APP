@@ -17,7 +17,8 @@ catalog-driven buttons, with values from the laser or typed manually.
 1. Open wall `A` → header with three length fields: `Piso`, `900 mm`, `Techo`
    (design length = minimum, shown live), plus `Desplome` (`dPl`) and
    optional `Cierre` (closing measurement: from the wall's **right** corner to
-   the right edge of the rightmost element).
+   the right edge of the rightmost element). Then **ceiling height at the
+   left and right ends** of the wall (sloped ceilings allowed).
 2. Elements captured **by layers** (#27): Aberturas → Obstrucciones →
    Servicios → Electrodomésticos, each left → right; each layer ends with
    "Listo" or "No hay … en este muro". Buttons show only the layer's group.

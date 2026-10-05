@@ -20,19 +20,18 @@ skeleton for per-wall capture.
 
 1. Start measurement on a prepared session → creates a local measurement
    (`measurementUuid`, revision 1).
-2. Enter ceiling height (laser or manual).
-3. Add walls: app proposes `A`, `B`, `C`… in order (clockwise from left of the
+2. Add walls: app proposes `A`, `B`, `C`… in order (clockwise from left of the
    entry door, reminder shown with an illustration).
-4. Corners `E-AB`, `E-BC`… auto-created between consecutive walls; angle
+3. Corners `E-AB`, `E-BC`… auto-created between consecutive walls; angle
    defaults to 90°. Square check by the **diagonal method** (#27 step 4):
    legs 1000/1000 mm (editable) + measured diagonal → computed angle.
    Optional closing corner (last → A) for closed rooms.
-5. Mark which wall contains the entry door (for reference).
-6. Schematic preview: simple polygon/strip of walls (not to scale if angles unknown).
+4. Mark which wall contains the entry door (for reference).
+5. Schematic preview: simple polygon/strip of walls (not to scale if angles unknown).
 
 ## Local Data Impact
 
-- `measurements`, `walls` (code, order), `corners` (code, angleDeg), `ceilingHeight`.
+- `measurements`, `walls` (code, order), `corners` (code, angleDeg, square check). Ceiling heights are per wall (#12, #27).
 
 ## UI States
 
@@ -43,7 +42,6 @@ skeleton for per-wall capture.
 
 - [ ] Walls are coded sequentially `A…n`; removing a wall asks before renaming the following ones.
 - [ ] Corners follow `E-XY`; angle stored only when ≠ 90° is confirmed.
-- [ ] Ceiling height accepts laser input.
 - [ ] Everything persists immediately (app kill safe).
 
 ## Test Plan

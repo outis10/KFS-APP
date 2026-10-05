@@ -23,7 +23,8 @@ photos per wall, instant validation and a final review/confirm.
 See the Studio plan (`kalitron-furniture-studio/docs/specs/e12-site-measurement/plan.md`,
 section *Capture Rules*). Summary: millimeters only; walls `A…n` clockwise from
 the left of the entry door; corners `E-AB` with angle if ≠ 90°; three lengths per
-wall (floor, 900 mm, ceiling; design uses the minimum); X cumulative from the
+wall (floor, 900 mm, ceiling; design uses the minimum); ceiling height at both
+ends of every wall; X cumulative from the
 wall's left corner; Y from finished floor; at least one photo per wall.
 
 ## Issues
