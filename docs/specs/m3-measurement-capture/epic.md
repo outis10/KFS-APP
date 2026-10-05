@@ -2,7 +2,7 @@
 epic: M3
 title: On-site measurement capture
 status: Draft
-issues: "#10 #11 #12 #13 #14 #15"
+issues: "#10 #11 #12 #13 #14 #15 #27"
 studio_epic: "outis10/kalitron-furniture-studio#104"
 ---
 
@@ -23,13 +23,15 @@ photos per wall, instant validation and a final review/confirm.
 See the Studio plan (`kalitron-furniture-studio/docs/specs/e12-site-measurement/plan.md`,
 section *Capture Rules*). Summary: millimeters only; walls `A…n` clockwise from
 the left of the entry door; corners `E-AB` with angle if ≠ 90°; three lengths per
-wall (floor, 900 mm, ceiling; design uses the minimum); X cumulative from the
+wall (floor, 900 mm, ceiling; design uses the minimum); ceiling height at both
+ends of every wall; X cumulative from the
 wall's left corner; Y from finished floor; at least one photo per wall.
 
 ## Issues
 
 | Issue | Spec |
 | --- | --- |
+| #27 Guided survey procedure (order, layers, diagonal check) | [27-guided-survey-procedure.md](27-guided-survey-procedure.md) |
 | #10 Download sessions and catalog | [10-download-sessions-and-catalog.md](10-download-sessions-and-catalog.md) |
 | #11 Floor plan capture | [11-floor-plan-capture.md](11-floor-plan-capture.md) |
 | #12 Wall capture with nomenclature buttons | [12-wall-capture.md](12-wall-capture.md) |
